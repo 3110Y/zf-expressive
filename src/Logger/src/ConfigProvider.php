@@ -2,10 +2,12 @@
 
 declare(strict_types=1);
 
-namespace App;
+namespace Logger;
+
+use Psr\Log\LoggerInterface;
 
 /**
- * The configuration provider for the App module
+ * The configuration provider for the Logger module
  *
  * @see https://docs.zendframework.com/zend-component-installer/
  */
@@ -16,7 +18,6 @@ class ConfigProvider
      *
      * To add a bit of a structure, each section is defined in a separate
      * method which returns an array with its configuration.
-     *
      */
     public function __invoke() : array
     {
@@ -33,10 +34,9 @@ class ConfigProvider
     {
         return [
             'invokables' => [
-                Action\PingHandler::class => Action\PingHandler::class,
             ],
             'factories'  => [
-                Action\HomePageHandler::class => Factory\HomePageHandlerFactory::class,
+                LoggerInterface::class => LoggerFactory::class
             ],
         ];
     }
@@ -48,9 +48,7 @@ class ConfigProvider
     {
         return [
             'paths' => [
-                'app'    => [__DIR__ . '/../templates/app'],
-                'error'  => [__DIR__ . '/../templates/error'],
-                'layout' => [__DIR__ . '/../templates/layout'],
+                'logger'    => [__DIR__ . '/../templates/'],
             ],
         ];
     }

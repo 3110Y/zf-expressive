@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace AppTest\Handler;
 
-use App\Handler\HomePageHandler;
+use App\Action\HomePageHandler;
 use PHPUnit\Framework\TestCase;
 use Prophecy\Argument;
 use Prophecy\Prophecy\ObjectProphecy;
@@ -33,8 +33,7 @@ class HomePageHandlerTest extends TestCase
     {
         $homePage = new HomePageHandler(
             $this->router->reveal(),
-            null,
-            get_class($this->container->reveal())
+            \get_class($this->container->reveal())
         );
         $response = $homePage->handle(
             $this->prophesize(ServerRequestInterface::class)->reveal()
@@ -52,8 +51,8 @@ class HomePageHandlerTest extends TestCase
 
         $homePage = new HomePageHandler(
             $this->router->reveal(),
-            $renderer->reveal(),
-            get_class($this->container->reveal())
+            get_class($this->container->reveal()),
+            $renderer->reveal()
         );
 
         $response = $homePage->handle(

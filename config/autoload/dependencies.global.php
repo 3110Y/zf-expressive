@@ -2,6 +2,9 @@
 
 declare(strict_types=1);
 
+
+use Psr\Log\LoggerInterface;
+
 return [
     // Provides application-wide services.
     // We recommend using fully-qualified class names whenever possible as

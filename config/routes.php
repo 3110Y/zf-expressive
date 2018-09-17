@@ -36,6 +36,6 @@ use Zend\Expressive\MiddlewareFactory;
  * @param ContainerInterface $container
  */
 return function (Application $app, MiddlewareFactory $factory, ContainerInterface $container) : void {
-    $app->get('/', App\Handler\HomePageHandler::class, 'home');
-    $app->get('/api/ping', App\Handler\PingHandler::class, 'api.ping');
+    $app->get('/', App\Action\HomePageHandler::class, 'home');
+    $app->get('/api/ping', App\Action\PingHandler::class, 'api.ping');
 };

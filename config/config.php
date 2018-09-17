@@ -13,6 +13,7 @@ $cacheConfig = [
 ];
 
 $aggregator = new ConfigAggregator([
+    \Logger\ConfigProvider::class,
     \Zend\Expressive\Twig\ConfigProvider::class,
     \Zend\HttpHandlerRunner\ConfigProvider::class,
     \Zend\Expressive\Router\AuraRouter\ConfigProvider::class,
@@ -43,4 +44,6 @@ $aggregator = new ConfigAggregator([
     new PhpFileProvider(realpath(__DIR__) . '/development.config.php'),
 ], $cacheConfig['config_cache_path']);
 
-return $aggregator->getMergedConfig();
+var_dump($aggregator->getMergedConfig());
+die();
+return ;

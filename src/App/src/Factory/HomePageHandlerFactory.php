@@ -2,8 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\Handler;
+namespace App\Factory;
 
+use App\Action\HomePageHandler;
 use Psr\Container\ContainerInterface;
 use Psr\Http\Server\RequestHandlerInterface;
 use Zend\Expressive\Router\RouterInterface;
@@ -17,7 +18,6 @@ class HomePageHandlerFactory
         $template = $container->has(TemplateRendererInterface::class)
             ? $container->get(TemplateRendererInterface::class)
             : null;
-
-        return new HomePageHandler($router, $template, get_class($container));
+        return new HomePageHandler($router, \get_class($container), $template);
     }
 }
