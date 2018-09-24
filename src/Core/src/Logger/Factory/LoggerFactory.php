@@ -6,7 +6,7 @@
  * Time: 18:48
  */
 
-namespace Logger;
+namespace Core\Logger\Factory;
 
 
 use Monolog\Handler\StreamHandler;
@@ -25,8 +25,9 @@ class LoggerFactory
         $logger = new Logger('App');
         $logger->pushHandler(new StreamHandler(
             'file/log/application.log',
-            $container->get('debug') ? Logger::DEBUG : Logger::WARNING
+            $container->get('config')['debug'] ? Logger::DEBUG : Logger::WARNING
         ));
+
         return $logger;
     }
 }

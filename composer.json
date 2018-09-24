@@ -62,7 +62,8 @@
     "autoload": {
         "psr-4": {
             "App\\": "src/App/src/",
-            "Logger\\": "src/Logger/src/"
+            "Logger\\": "src/Logger/src/",
+            "Core\\": "src/Core/src/"
         }
     },
     "autoload-dev": {

@@ -2,7 +2,8 @@
 
 declare(strict_types=1);
 
-use Logger\Middleware\ResponseLoggerMiddleware;
+
+use Core\Logger\Middleware\ResponseLoggerMiddleware;
 use Psr\Container\ContainerInterface;
 use Zend\Expressive\Application;
 use Zend\Expressive\Handler\NotFoundHandler;

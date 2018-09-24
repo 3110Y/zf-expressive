@@ -6,25 +6,37 @@
  * Time: 19:46
  */
 
-namespace Logger\Middleware;
+namespace Core\Logger\Middleware;
 
 
 use Monolog\Logger;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
+use Psr\Http\Server\MiddlewareInterface;
 use Psr\Http\Server\RequestHandlerInterface;
 use Psr\Log\LoggerInterface;
 
-class ResponseLoggerMiddleware
+class ResponseLoggerMiddleware implements MiddlewareInterface
 {
+    /**
+     * @var LoggerInterface
+     */
     private $logger;
 
+    /**
+     * ResponseLoggerMiddleware constructor.
+     * @param LoggerInterface $logger
+     */
     public function __construct(LoggerInterface $logger)
     {
         $this->logger = $logger;
     }
 
-
+    /**
+     * @param ServerRequestInterface $request
+     * @param RequestHandlerInterface $handler
+     * @return ResponseInterface
+     */
     public function process(ServerRequestInterface $request, RequestHandlerInterface $handler): ResponseInterface
     {
         $response = $handler->handle($request);
