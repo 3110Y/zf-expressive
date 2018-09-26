@@ -6,7 +6,7 @@
  * Time: 14:27
  */
 
-namespace Core\Http\File;
+namespace Core\Http\Response;
 
 use Psr\Http\Message\ServerRequestInterface;
 

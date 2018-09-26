@@ -6,7 +6,7 @@
  * Time: 18:47
  */
 
-namespace Core\Http\File;
+namespace Core\Http\Response;
 
 
 use Zend\Diactoros\Stream;

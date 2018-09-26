@@ -6,7 +6,7 @@
  * Time: 18:48
  */
 
-namespace Core\Http\File;
+namespace Core\Http\Response;
 
 
 use Psr\Http\Message\StreamInterface;

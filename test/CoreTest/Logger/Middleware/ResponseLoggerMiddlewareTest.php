@@ -9,7 +9,9 @@
 namespace CoreTest\Logger\Middleware;
 
 //TODO: тест
-class ResponseLoggerMiddlewareTest
+use PHPUnit\Framework\TestCase;
+
+class ResponseLoggerMiddlewareTest extends TestCase
 {
 
 }
